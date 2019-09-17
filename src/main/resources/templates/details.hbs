@@ -1,0 +1,25 @@
+{{#partial "content"}}
+
+
+{{#if heroes}}
+{{#each heroes}}
+    <h5>hero name</h5>
+    <p> {{ name }}</p>
+    <h5>Hero age:</h5>
+    <p> {{ age }}</p>
+    <h5>Hero power:</h5>
+    <p> {{ power}}</p>
+    <h5>Hero weakness:</h5>
+    <p> {{ weakness }}</p>
+{{/each}}
+
+
+{{/if}}
+
+    <a href="/hero/{{hero.id}}/update">Edit this post</a>
+
+
+{{/partial}}
+
+{{> layout.hbs}}
+
