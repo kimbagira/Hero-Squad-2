@@ -1,4 +1,4 @@
-package model;
+
 
 import java.util.ArrayList;
 
@@ -56,12 +56,9 @@ public class Hero{
         return instances.get(id-1);
     }
 
-//    public void update(String name, String age, String power, String weakness) {
-//        Name = name;
-//        Age = age;
-//        Power = power;
-//        Weakness = weakness;
-//        Id = instances.size();
-//        instances.add(this);
-//    }
+
+    public void update(String name) {
+        this.name = name;
+
+    }
 }

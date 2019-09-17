@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Map;
 
 import java.util.HashMap;
-import model.Hero;
+
 import static spark.Spark.*;
 
 public class App {
@@ -30,7 +30,7 @@ public class App {
                     model.put("name",newHero.getName());
                     model.put("age",newHero.getAge());
                     model.put("power",newHero.getPower());
-                    model.put("weakness",newHero.getWeakness());
+                    model.put("weak",newHero.getWeakness());
                     System.out.println(newHero.getWeakness());
                     model.put("hero", newHero);
                     return new ModelAndView(model, "success.hbs");
@@ -43,51 +43,54 @@ public class App {
             return new ModelAndView(model, "details.hbs");
         }, new HandlebarsTemplateEngine());
 
-//        get: show an individual hero
-                get("/hero/:id", (req, res) -> {
+
+
+            get("/squad", (req, res) -> {
                     Map<String, Object> model = new HashMap<>();
-                    int idOfHeroToFind = Integer.parseInt(req.params("id")); //pull id - must match route segment
-                    model.Hero foundHero = Hero.search(idOfHeroToFind); //use it to find hero
-                    model.put("Hero", foundHero); //add it to model for template to display
-                    return new ModelAndView(model, "detail.hbs"); //individual post page.
+                    return new ModelAndView(model, "formtwo.hbs");
                 }, new HandlebarsTemplateEngine());
 
-                //get: show a form to update a post
-                get("/hero/:id/update", (req, res) -> {
-                    Map<String, Object> model = new HashMap<>();
-                    int idOfHeroToEdit = Integer.parseInt(req.params("id"));
-                    model.Hero editHero = Hero.search(idOfHeroToEdit);
-                    model.put("editHero", editHero);
-                    return new ModelAndView(model, "templates/form.hbs");
-                }, new HandlebarsTemplateEngine());
+        post("/squad/new", (req, res) -> { //URL to make new hero on POST route
+            Map<String, Object> model = new HashMap<>();
 
-                //post: process a form to update a post
-//                post("/hero/:id/update", (req, res) -> { //URL to make new post on POST route
-//                    Map<String, Object> model = new HashMap<>();
-//                    String name = req.queryParams("name");
-//                    String age=req.params("age");
-//                    String power = req.queryParams("power");
-//                    String weakness = req.queryParams("weakness");
-//                    int idOfHeroToEdit = Integer.parseInt(req.params("id"));
-//                    model.Hero editHero = Hero.search(idOfHeroToEdit);
-//                    editHero.update( name, age, power, weakness);
-//                    return new ModelAndView(model, "success.hbs");
-//                }, new HandlebarsTemplateEngine());
+            String name = req.queryParams("Name");
+            String cause = req.queryParams("Cause");
+            int size=Integer.parseInt(req.queryParams("size"));
+            Squad newSquad = new Squad(name, cause, size);
+            model.put("squad", newSquad);
+            model.put("name",newSquad.getName());
+            model.put("cause",newSquad.getCause());
+            model.put("size",newSquad.getsize());
+            System.out.println(newSquad.getName());
+            return new ModelAndView(model, "successtwo.hbs");
+        }, new HandlebarsTemplateEngine());
+        get("/squades/new", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            ArrayList<Squad> squads = Squad.all();
+            Object squades;
+            model.put("squades", squads);
+            return new ModelAndView(model, "details.hbs");
+        }, new HandlebarsTemplateEngine());
 
-                //get: delete an individual post
-                get("/hero/:id/delete", (req, res) -> {
-                    Map<String, Object> model = new HashMap<>();
-                    int idOfHeroToDelete = Integer.parseInt(req.params("id")); //pull id - must match route segment
-                    model.Hero deleteHero = Hero.search(idOfHeroToDelete); //use it to find post
-                    deleteHero.clear();
-                    return new ModelAndView(model, "success.hbs");
-                }, new HandlebarsTemplateEngine());
 
-                //get: delete all posts
-                get("/hero/delete", (req, res) -> {
-                    Map<String, Object> model = new HashMap<>();
-                    Hero.clear();
-                    return new ModelAndView(model, "success.hbs");
-                }, new HandlebarsTemplateEngine());
+//        int idOfHeroToEdit = 0;
+//        get("/hero/:id/update", (req, res) -> {
+//            Map<String, Object> model = new HashMap<>();
+//            int idOfHeroToEdit = Integer.parseInt(req.params("id"));
+//            Hero editHero = Hero.search(idOfHeroToEdit);
+//            model.put("editPost", editHero);
+//            return new ModelAndView(model, "newpost-form.hbs");
+//        }, new HandlebarsTemplateEngine());
+//
+//        post("/posts/:id/update", (req, res) -> {
+//            Map<String, Object> model = new HashMap<>();
+//            String newContent = req.queryParams("name");
+//           int idOfHeroToEdit = Integer.parseInt(req.params("id"));
+//            Hero editHero = Hero.search(idOfHeroToEdit);
+//            editHero.update(newContent); //don’t forget me
+//            return new ModelAndView(model, "success.hbs");
+//        }, new HandlebarsTemplateEngine());
+
+
             }
         }

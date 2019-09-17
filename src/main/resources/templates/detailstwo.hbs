@@ -1,0 +1,24 @@
+{{#partial "content"}}
+
+
+    {{#if squads}}
+        {{#each squads}}
+            <h5>squad name</h5>
+            <p> {{ name }}</p>
+            <h5>squad cause:</h5>
+            <p> {{ cause}}</p>
+            <h5>squad size:</h5>
+            <p> {{ size}}</p>
+
+        {{/each}}
+
+
+    {{/if}}
+
+    <a href="/squad/{{squad.id}}/update">Edit this post</a>
+
+
+{{/partial}}
+
+{{> layout.hbs}}
+
