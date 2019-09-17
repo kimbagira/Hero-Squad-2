@@ -1,6 +1,6 @@
 {{#partial "content"}}
 
-
+<body>
 {{#if heroes}}
 {{#each heroes}}
     <h5>hero name</h5>
@@ -17,9 +17,19 @@
 {{/if}}
 
     <a href="/heroes/{{hero.id}}/update">Edit this post</a>
-
+</body>
 
 {{/partial}}
-
+<style>
+    body {
+    margin-top: 10%;
+     margin-left:1400px;
+      font-size: 29px;
+      background-image: url(https://imgix.bustle.com/uploads/image/2018/5/10/beb60b84-186c-49fe-a9f4-7f0b4d87e8cf-black-panther-marvel-women-a-force-dora-milaje.jpg);
+      background-repeat:no-repeat;
+      background-size:cover;
+      color: white;
+    }
+</style>
 {{> layout.hbs}}
 

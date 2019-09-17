@@ -1,25 +1,66 @@
 {{#partial "content"}}
-
-    <h1>Add a new model.Hero!</h1>
+ <body>
+    <h1>Add a new model Hero!</h1>
 
     <form action="/hero/new" method="post">
-        <label for="Name">Hero name</label>
-        <input id="name" name="name" type="text"><br>
+        <label  for="Name">Hero name</label>
+        <input id="name" name="name" type="text"><br><br>
 
-        <label for="age">Hero  age</label>
-        <input id="age" name="age" type="number"><br>
+        <label style="margin-left: 7%;"for="age">Hero  age</label>
+        <input id="age" name="age" type="number"><br><br>
 
         <label for="name">Hero power</label>
-        <input id="power" name="power" type="text"><br>
+        <input id="power" name="power" type="text"><br><br>
 
 
         <label for="name">Hero weakness</label>
-        <input id="weakness" name="weakness" type="text"><br>
+        <input id="weakness" name="weakness" type="text"><br><br>
 
 
         <button type="submit" class="btn btn-default">Go!</button>
     </form>
+ </body>
+<style>
+    body{
+background-image: url(https://www.hdwallpapers.in/download/wonder_woman_aquaman_in_justice_league-HD.jpg);
+background-repeat:no-repeat;
+background-size:cover;
+}
 
+form, h1 {
+   text-align: center;
+   border-radius: 10px;
+   margin-right:300px;
+}
+
+label {
+   font-family: 'lora';
+  font-size: 19px;
+  color: white;
+  margin-left: 7%;
+}
+
+h1 {
+  color: white;
+}
+
+input {
+ padding: 18px;
+ padding-right: 25px;
+}
+
+button {
+  border-radius: 9%;
+  padding: 10px;
+  margin-left: 100px;
+}
+
+a {
+   color: white;
+   font-size: 19px;
+   text-decoration: none;
+}
+</style>
 {{/partial}}
 
 <a href="/squad"> Create Squad</a>

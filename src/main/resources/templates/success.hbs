@@ -1,4 +1,5 @@
 {{#partial "content"}}
+    <body>
             <h5>hero name</h5>
             <p> {{ name }}</p>
             <h5>Hero age:</h5>
@@ -11,8 +12,19 @@
     <h1>Success!</h1>
 
     Your  post has been saved.
-
     <a href="/heroes/new">Go Back</a>
-{{/partial}}
+    </body>
 
+{{/partial}}
+<style>
+    body {
+    margin-top: 4%;
+    margin-left: 70%;
+      font-size: 29px;
+      background-image: url(https://www.clickgratis.com.br/_upload/wallpapers/2015/07/01/thor-o-filme-55948b5611711.jpg);
+      background-repeat:no-repeat;
+      background-size:cover;
+      color: black;
+    }
+</style>
 {{> layout.hbs}}
