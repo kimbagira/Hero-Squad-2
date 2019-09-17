@@ -1,5 +1,7 @@
-# Hero-Squad-2
+## Hero-Squad-2
+
 ## AUTHOR
+
 kimbagira sylvie
 
 ## DESCRIPTION
@@ -28,7 +30,7 @@ the entered data will be posted
 
 https://github.com/kimbagira/Hero-Squad-2
 
-## BUGS
+kimbagira sylvie## BUGS
 
 no bugs
 
